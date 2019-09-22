@@ -1,0 +1,32 @@
+{
+  "name": "what-if-twitter-was-built-on-catalyst",
+  "version": "0.0.1",
+  "description": "Blockchain live developer den part 2 slides - What if Twitter was built on catalyst",
+  "main": "index.js",
+  "scripts": {
+    "build:pdf": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pdf",
+    "build:pptx": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pptx",
+    "build:html": "marp slides/index.md -o slides/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catalyst-network/meower.git"
+  },
+  "keywords": [
+    "Catalyst",
+    "web3",
+    "twitter",
+    "decentralised",
+    "web",
+    "dapp"
+  ],
+  "author": "nshcore <nshcore@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/catalyst-network/meower/issues"
+  },
+  "homepage": "https://github.com/catalyst-network/meower#readme",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^0.14.1"
+  }
+}
