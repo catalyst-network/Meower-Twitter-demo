@@ -135,5 +135,7 @@ export default {
 
 .tweetContent .emoji {
   width: 18px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 </style>
