@@ -116,12 +116,12 @@ export default {
       if (tweet) {
         try {
           if (this.modal) {
-            await this.axios.post('http://192.168.1.235:5006/api/Tweet/', {
+            await this.axios.post('/api/Tweet/', {
               message: tweet,
             });
             this.$parent.close();
           } else {
-            await this.axios.post('http://192.168.1.235:5006/api/Tweet/', {
+            await this.axios.post('/api/Tweet/', {
               message: tweet,
             });
           }
