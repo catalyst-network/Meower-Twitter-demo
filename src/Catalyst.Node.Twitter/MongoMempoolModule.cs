@@ -4,6 +4,8 @@ using System.Text;
 using Autofac;
 using Catalyst.Abstractions.Mempool;
 using Catalyst.Abstractions.Mempool.Repositories;
+using Catalyst.Core.Lib.DAO;
+using Catalyst.Core.Lib.Kernel;
 using Catalyst.Core.Lib.Mempool.Documents;
 using Catalyst.Core.Modules.Mempool;
 using Catalyst.Core.Modules.Mempool.Repositories;
@@ -17,11 +19,11 @@ namespace Catalyst.Node.POA.CE
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.Register(c => new MongoDbRepository<MempoolDocument, string>())
-                .As<IRepository<MempoolDocument, string>>()
+            builder.Register(c => new MongoDbRepository<TransactionBroadcastDao, string>())
+                .As<IRepository<TransactionBroadcastDao, string>>()
                 .SingleInstance();
-            builder.RegisterType<MempoolDocumentRepository>().As<IMempoolRepository<MempoolDocument>>().SingleInstance();
-            builder.RegisterType<Mempool>().As<IMempool<MempoolDocument>>().SingleInstance();
+            builder.RegisterType<MempoolDocumentRepository>().As<IMempoolRepository<TransactionBroadcastDao>>().SingleInstance();
+            builder.RegisterType<Mempool>().As<IMempool<TransactionBroadcastDao>>().SingleInstance();
         }
     }
 }

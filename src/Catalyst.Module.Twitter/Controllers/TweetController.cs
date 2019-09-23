@@ -156,13 +156,6 @@ namespace Catalyst.Module.Twitter.Controllers
             return GenerateTweet(_privateKey, _publicKey, tweetData.Message);
         }
 
-        [HttpPost("RandomMessage")]
-        public IActionResult RandomMessage(TweetData tweetData)
-        {
-            var privateKey = _cryptoWrapper.GeneratePrivateKey();
-            return GenerateTweet(privateKey, privateKey.GetPublicKey(), tweetData.Message);
-        }
-
         [HttpPost("Like/{tweetId}")]
         public IActionResult Like(string tweetId)
         {
