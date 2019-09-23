@@ -1,0 +1,51 @@
+{
+  "defaultAssembly": "Catalyst.Core.Lib",
+  "components": [
+    {
+      "type": "Catalyst.Core.Lib.P2P.IO.Observers.PingRequestObserver",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IP2PMessageObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Lib.P2P.IO.Observers.PingResponseObserver",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IP2PMessageObserver, Catalyst.Abstractions"
+        },
+        {
+          "type": "Catalyst.Abstractions.P2P.IO.IPeerClientObservable, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Lib.P2P.IO.Observers.GetNeighbourRequestObserver",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IP2PMessageObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Lib.P2P.IO.Observers.GetNeighbourResponseObserver",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IP2PMessageObserver, Catalyst.Abstractions"
+        },
+        {
+          "type": "Catalyst.Abstractions.P2P.IO.IPeerClientObservable, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Lib.P2P.IO.Observers.TransactionBroadcastObserver",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IP2PMessageObserver, Catalyst.Abstractions"
+        }
+      ]
+    }
+  ]
+}

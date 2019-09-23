@@ -1,0 +1,201 @@
+{
+    "defaultAssembly": "Catalyst.Node.POA.CE",
+    "components": [
+        {
+            "type": "Catalyst.Node.POA.CE.CatalystNodePoa",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.ICatalystNode, Catalyst.Abstractions"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.Ledger.Repository.AccountRepository, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Core.Ledger.Repository.IAccountRepository, Catalyst.Core"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.IO.EventLoop.EventLoopGroupFactoryConfiguration, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.IO.EventLoop.IEventLoopGroupFactoryConfiguration, Catalyst.Abstractions"
+                }
+            ],
+            "properties": {
+                "TcpServerHandlerWorkerThreads": 4,
+                "UdpServerHandlerWorkerThreads": 8,
+                "UdpClientHandlerWorkerThreads": 2
+            }
+        },
+        {
+            "type": "Catalyst.Core.IO.EventLoop.TcpServerEventLoopGroupFactory, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.IO.EventLoop.ITcpServerEventLoopGroupFactory, Catalyst.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.IO.EventLoop.UdpClientEventLoopGroupFactory, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.IO.EventLoop.IUdpClientEventLoopGroupFactory, Catalyst.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.IO.EventLoop.UdpServerEventLoopGroupFactory, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.IO.EventLoop.IUdpServerEventLoopGroupFactory, Catalyst.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.IO.Handlers.ObservableServiceHandler, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.IO.Handlers.IObservableServiceHandler, Catalyst.Abstractions"
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory",
+            "services": [
+                {
+                    "type": "Microsoft.Extensions.Options.IOptions`1[[Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory]], Microsoft.Extensions.Options"
+                }
+            ]
+        },
+        {
+            "type": "Microsoft.Extensions.Caching.Memory.MemoryCache, Microsoft.Extensions.Caching.Memory",
+            "services": [
+                {
+                    "type": "Microsoft.Extensions.Caching.Memory.IMemoryCache, Microsoft.Extensions.Caching.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.Network.DevDnsClient, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Network.IDns, Catalyst.Abstractions"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.Network.InjectableLookupClient, Catalyst.Core",
+            "services": [
+                {
+                    "type": "DnsClient.ILookupClient, DnsClient"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.Cryptography.CertificateStore, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Cryptography.ICertificateStore, Catalyst.Abstractions"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.Cryptography.IsaacRandom, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Cryptography.IDeterministicRandom, Catalyst.Abstractions"
+                }
+            ]
+        },
+        // WHY USE CLI BASED CLASS AND NOT IN COMMON???
+        {
+            "type": "Catalyst.Core.Cli.ConsoleUserOutput, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Cli.IUserOutput, Catalyst.Abstractions"
+                }
+            ]
+        },
+        // WHY USE CLI BASED CLASS AND NOT IN COMMON???
+        {
+            "type": "Catalyst.Core.Cli.ConsoleUserInput, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Cli.IUserInput, Catalyst.Abstractions"
+                }
+            ]
+        },
+        {
+            "type": "Catalyst.Core.FileSystem.FileSystem, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.FileSystem.IFileSystem, Catalyst.Abstractions"
+                }
+            ],
+            "parameters": {
+                "configDataDir": "/home/nsh/.catalyst"
+            }
+        },
+        {
+            "type": "Catalyst.Core.FileTransfer.UploadFileTransferFactory, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.FileTransfer.IUploadFileTransferFactory, Catalyst.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.FileTransfer.DownloadFileTransferFactory, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.FileTransfer.IDownloadFileTransferFactory, Catalyst.Abstractions"
+                }
+            ],
+            "instanceScope": "singleinstance"
+        },
+        {
+            "type": "Catalyst.Core.Util.TtlChangeTokenProvider, Catalyst.Core",
+            "services": [
+                {
+                    "type": "Catalyst.Abstractions.Util.IChangeTokenProvider, Catalyst.Abstractions"
+                }
+            ],
+            "parameters": {
+                "timeToLiveInMs": 8000
+            }
+        }
+    ],
+    "modules": [
+        {
+            "type": "Catalyst.Core.JsonConfiguredModule, Catalyst.Core",
+            "parameters": {
+                "configFilePath": "Config/messageHandlers.json"
+            }
+        },
+        // The following modules are not only modules in the sense of Autofac,
+        // but also in the sense of the catalyst node architecture, i.e. swappable
+        // components that can customized for different use cases.
+        {
+            "type": "Catalyst.Core.Api.ApiModule, Catalyst.Core",
+            "parameters": {
+                "apiBindingAddress": "http://*:5005",
+                "controllerModules": [ "Catalyst.Core" ],
+                "addSwagger":  true
+            }
+        },
+        {
+            "type": "Catalyst.Core.JsonConfiguredModule, Catalyst.Core",
+            "parameters": {
+                "configFilePath": "Config/Modules/keysigner.json"
+            }
+        }
+    ]
+}

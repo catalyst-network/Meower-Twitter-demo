@@ -1,0 +1,133 @@
+{
+  "defaultAssembly": "Catalyst.Core.Modules.Rpc.Server",
+  "components": [
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.GetInfoRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.GetPeerInfoRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.GetMempoolRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.BroadcastRawTransactionRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.GetVersionRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.SignMessageRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.VerifyMessageRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.PeerListRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.AddFileToDfsRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.GetFileFromDfsRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.TransferFileBytesRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.PeerCountRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.RemovePeerRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.PeerReputationRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.PeerBlackListingRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    },
+    {
+      "type": "Catalyst.Core.Modules.Rpc.Server.IO.Observers.ChangeDataFolderRequestObserver, Catalyst.Core.Modules.Rpc.Server",
+      "services": [
+        {
+          "type": "Catalyst.Abstractions.IO.Observers.IRpcRequestObserver, Catalyst.Abstractions"
+        }
+      ]
+    }
+  ]
+}

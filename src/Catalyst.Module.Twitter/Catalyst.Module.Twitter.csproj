@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Catalyst.Module.Twitter</RootNamespace>
+    <CopyRefAssembliesToPublishDirectory>true</CopyRefAssembliesToPublishDirectory>
+    <MvcBuildViews>true</MvcBuildViews>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Views\**" />
+    <Content Remove="Views\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Views\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+    <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\submodules\Catalyst.Node\src\Catalyst.Abstractions\Catalyst.Abstractions.csproj" />
+    <ProjectReference Include="..\Catalyst.Module.TwitterLikes\Catalyst.Module.TwitterLikes.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="ClientApp\package-lock.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="CheckNode" BeforeTargets="BeforeBuild">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+  </Target>
+
+  <Target Name="InstallPackages" BeforeTargets="BeforeBuild" DependsOnTargets="CheckNode">
+    <Message Importance="high" Text="*** Installing npm packages ***" />
+    <Exec WorkingDirectory="./ClientApp" Command="npm install" ContinueOnError="false" />
+  </Target>
+
+  <Target Name="BuildWebApp" BeforeTargets="Build" DependsOnTargets="InstallPackages">
+    <Message Importance="high" Text="Performing build..." />
+    <Exec WorkingDirectory="./ClientApp" Command="npm run build" ContinueOnError="false" />
+  </Target>
+
+  <Target Name="PublishWebApp" BeforeTargets="Build" DependsOnTargets="BuildWebApp">
+    <ItemGroup>
+      <WEBDIST Include="ClientApp\dist\**\*.*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(WEBDIST)" DestinationFolder="..\Catalyst.Node.Twitter\bin\Debug\netcoreapp2.2\wwwroot\%(RecursiveDir)" />
+  </Target>
+</Project>

@@ -1,1 +1,1 @@
-# meower
+Catalyst.Node.POA.CE
