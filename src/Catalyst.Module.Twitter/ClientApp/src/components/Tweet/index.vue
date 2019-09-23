@@ -98,7 +98,7 @@ export default {
       try {
         this.userLiked = true;
         this.likes += 1;
-        await this.axios.post(`/api/Tweet/Like/${this.tweet.tweetHash}`);
+        await this.axios.post(`http://192.168.1.235:5006/api/Tweet/Like/${this.tweet.tweetHash}`);
       } catch (e) {
         console.error(e);
         this.userLiked = false;
@@ -109,7 +109,7 @@ export default {
       try {
         this.userLiked = false;
         this.likes -= 1;
-        await this.axios.post(`/api/Tweet/Unlike/${this.tweet.tweetHash}`);
+        await this.axios.post(`http://192.168.1.235:5006/api/Tweet/Unlike/${this.tweet.tweetHash}`);
       } catch (e) {
         this.userLiked = false;
         console.error(e);
@@ -135,5 +135,7 @@ export default {
 
 .tweetContent .emoji {
   width: 18px;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 </style>

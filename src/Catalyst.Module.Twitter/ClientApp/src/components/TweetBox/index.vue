@@ -108,26 +108,27 @@ export default {
 
   methods: {
     addEmoji(emoji) {
-      console.log(emoji);
       this.message += emoji.native;
     },
     async tweet() {
-      console.log(this.message);
-      try {
-        if (this.modal) {
-          await this.axios.post('/api/Tweet/RandomMessage', {
-            message: this.message,
-          });
-          this.$parent.close();
-        } else {
-          await this.axios.post('/api/Tweet/', {
-            message: this.message,
-          });
-        }
-      } catch (e) {
-        console.error(e);
-      }
+      const tweet = this.message;
       this.message = null;
+      if (tweet) {
+        try {
+          if (this.modal) {
+            await this.axios.post('http://192.168.1.235:5006/api/Tweet/', {
+              message: tweet,
+            });
+            this.$parent.close();
+          } else {
+            await this.axios.post('http://192.168.1.235:5006/api/Tweet/', {
+              message: tweet,
+            });
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
     },
   },
 };
