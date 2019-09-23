@@ -54,6 +54,7 @@ using Catalyst.Module.Twitter.Interfaces;
 using Catalyst.Module.TwitterLikes.Interfaces;
 using Catalyst.Module.TwitterLikes.Models;
 using Catalyst.Module.TwitterLikes.Repository;
+using Catalyst.Module.TwitterLikes.Services;
 using Catalyst.Modules.POA.Consensus;
 using Catalyst.Modules.POA.P2P;
 using Catalyst.Protocol.Network;
@@ -173,6 +174,7 @@ namespace Catalyst.Node.POA.CE
                 .As<IRepository<TweetLike, string>>()
                 .SingleInstance();
             Kernel.ContainerBuilder.RegisterType<TweetLikeRepository>().As<ITweetLikeRepository>().SingleInstance();
+            Kernel.ContainerBuilder.RegisterType<TweetLikeService>().As<ITweetLikeService>().SingleInstance();
 
             kernel.ContainerBuilder.RegisterModule(new ApiModule("http://*:5006",
                 new List<string>
@@ -198,7 +200,7 @@ namespace Catalyst.Node.POA.CE
         {
             if (string.IsNullOrEmpty(options.TwitterLikeUrl))
             {
-                options.TwitterLikeUrl = "http://192.168.1.235:5006";
+                options.TwitterLikeUrl = "http://127.0.0.1:5006";
             }
 
             Kernel.ContainerBuilder.RegisterType<TwitterModuleConfig>().As<ITwitterModuleConfig>()
