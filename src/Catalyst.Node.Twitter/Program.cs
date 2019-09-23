@@ -29,8 +29,6 @@ using Autofac;
 using Catalyst.Abstractions;
 using Catalyst.Abstractions.Cli;
 using Catalyst.Abstractions.DAO;
-using Catalyst.Abstractions.Mempool;
-using Catalyst.Abstractions.Mempool.Repositories;
 using Catalyst.Abstractions.Types;
 using Catalyst.Core.Lib;
 using Catalyst.Core.Lib.Cli;
@@ -44,8 +42,6 @@ using Catalyst.Core.Modules.Dfs;
 using Catalyst.Core.Modules.KeySigner;
 using Catalyst.Core.Modules.Keystore;
 using Catalyst.Core.Modules.Ledger;
-using Catalyst.Core.Modules.Mempool;
-using Catalyst.Core.Modules.Mempool.Repositories;
 using Catalyst.Core.Modules.P2P.Discovery.Hastings;
 using Catalyst.Core.Modules.Rpc.Server;
 using Catalyst.Core.Modules.Web3;
@@ -137,21 +133,7 @@ namespace Catalyst.Node.POA.CE
             // core modules
             Kernel.ContainerBuilder.RegisterModule(new CoreLibProvider());
 
-            Kernel.ContainerBuilder.Register(c => new MongoDbRepository<TransactionBroadcastDao, string>())
-                .As<IRepository<TransactionBroadcastDao, string>>()
-                .SingleInstance();
-            Kernel.ContainerBuilder.RegisterType<MempoolDocumentRepository>()
-                .As<IMempoolRepository<TransactionBroadcastDao>>().SingleInstance();
-            Kernel.ContainerBuilder.RegisterType<Mempool>().As<IMempool<TransactionBroadcastDao>>().SingleInstance();
-
-            //Kernel.ContainerBuilder.RegisterModule(new MempoolModule());
-            //Kernel.ContainerBuilder.Register(c => new InMemoryRepository<MempoolDocument, string>())
-            //    .As<IRepository<MempoolDocument, string>>()
-            //    .SingleInstance();
-            //Kernel.ContainerBuilder.RegisterType<MempoolDocumentRepository>().As<IMempoolRepository<MempoolDocument>>().SingleInstance();
-            //Kernel.ContainerBuilder.RegisterType<Mempool>().As<IMempool<MempoolDocument>>().SingleInstance();
-
-            //Kernel.ContainerBuilder.RegisterModule(new MongoMempoolModule());
+            Kernel.ContainerBuilder.RegisterModule(new MongoMempoolModule());
 
             Kernel.ContainerBuilder.RegisterModule(new ConsensusModule());
             Kernel.ContainerBuilder.RegisterModule(new LedgerModule());
@@ -216,7 +198,6 @@ namespace Catalyst.Node.POA.CE
                     .WithNetworksConfigFile(NetworkType.Devnet, options.OverrideNetworkFile)
                     .WithConfigurationFile(PoaConstants.P2PMessageHandlerConfigFile)
                     .WithConfigurationFile(PoaConstants.RpcMessageHandlerConfigFile)
-                    //.WithConfigurationFile(PoaConstants.Twitter)
                     .WithSerilogConfigFile()
                     .WithConfigCopier(new PoaConfigCopier())
                     .WithPersistenceConfiguration()
