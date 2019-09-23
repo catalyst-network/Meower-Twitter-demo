@@ -26,7 +26,7 @@ Created by @nshcore
 
 ---
 
-"After years of secretly monitoring the public, we were astounded so many people would willingly publicize where they live, their religious and political views and alphabetized list of all their friends, personal e-mail addresses, phone numbers, hundreds of photos of themselves and even status updates about what they were doing moment to moment. It is truly a dream come true for the CIA." - Quote by Christopher Sartinsky, Deputy CIA Director (The Onion) 
+"After years of secretly monitoring the public, we were astounded so many people would willingly publicize where they live, their religious and political views and alphabetized list of all their friends, personal e-mail addresses, phone numbers, hundreds of photos of themselves and even status updates about what they were doing moment to moment. It is truly a dream come true for the CIA." - Christopher Sartinsky, Deputy CIA Director (The Onion) 
 
 ---
 
@@ -45,10 +45,66 @@ Take a fictional Target shopper named Jenny Ward, who is 23, lives in Atlanta an
 ## - Vicktor Emil Frankl 
 
 ---
+# Facebook: The Social Experiment(s)
 
-# Facebook: The Social Experiment
+---
+# The Role of Social Networks in Information Diffusion
+
+Date: 2010
+Users violated: 253,000,000
+
+---
+# Social Influence and Political Mobilization
+
+Date: 2010
+Users violated: 61,000,000
+
+---
+# Social influence advertising
+
+Date: 2011
+Users violated: 29,000,000
+
+---
+# The spread of emotion
+
+Date: 2011
+Users violated: 151,000,000
+
+---
+# Emotional contagion
+
+Date: 2012
+Users violated: 689,003
+
+---
+# Self-censorship
+
+Date: 2012
+Users violated: 4,000,000
+
+---
+# Selection Effects in Online Sharing
+
+Date: 2012
+Users violated: 1,000,000
+
+---
+# NSA Surveillance Program
+
+Date: 2001
+Users violated: Every web user.
+![bg right 80%](./images/prism-timeline.jpeg)
+
+---
+# The client server web
+![bg right 50%](./images/client-server-web.png)
+
+---
+# <!--fit--> 1 + 2 = web3.0
 
 ---
 
-# The client server web
-![bg right 50%](./images/client-server-web.png)
+# Web 3.0
+## Token Economy
+![bg right 80%](./images/web3.png)
