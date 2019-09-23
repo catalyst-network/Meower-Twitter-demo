@@ -4,6 +4,7 @@
   "description": "Blockchain live developer den part 2 slides - What if Twitter was built on catalyst",
   "main": "index.js",
   "scripts": {
+    "dev": "marp --server .",
     "build:pdf": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pdf",
     "build:pptx": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pptx",
     "build:html": "marp slides/index.md -o slides/index.html"
