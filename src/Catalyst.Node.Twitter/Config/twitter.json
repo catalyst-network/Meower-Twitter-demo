@@ -1,0 +1,34 @@
+{
+    "defaultAssembly": "Catalyst.Module.Twitter",
+  "components": [
+    {
+      "type": "Catalyst.Module.Twitter.Config.TwitterModuleConfig, Catalyst.Module.Twitter",
+      "services": [
+        {
+          "type": "Catalyst.Module.Twitter.Interfaces.ITwitterModuleConfig, Catalyst.Module.Twitter"
+        }
+      ],
+      "properties": {
+        "TwitterLikesApiUrl": "http://localhost:5006"
+      },
+      "instanceScope": "singleinstance"
+    },
+    {
+      "type": "Catalyst.Module.TwitterLikes.Repository.TweetLikeRepository, Catalyst.Module.TwitterLikes",
+      "services": [
+        {
+          "type": "Catalyst.Module.TwitterLikes.Interfaces.ITweetLikeRepository, Catalyst.Module.TwitterLikes"
+        }
+      ],
+      "instanceScope": "singleinstance"
+    },
+    {
+      "type": "SharpRepository.MongoDbRepository.MongoDbRepository`2[[Catalyst.Module.TwitterLikes.Models.TweetLike, Catalyst.Module.TwitterLikes], [System.String, mscorlib]], SharpRepository.MongoDbRepository",
+      "services": [
+        {
+          "type": "SharpRepository.Repository.IRepository`2[[Catalyst.Module.TwitterLikes.Models.TweetLike, Catalyst.Module.TwitterLikes], [System.String, mscorlib]], SharpRepository.Repository"
+        }
+      ]
+    }
+  ]
+}
