@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "marp --server .",
-    "build:pdf": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pdf",
-    "build:pptx": "marp slides/index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pptx",
-    "build:html": "marp slides/index.md -o slides/index.html"
+    "build:pdf": "marp index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pdf",
+    "build:pptx": "marp index.md -o slides/WhatIfTwitterWasBuiltOnCatalyst.pptx",
+    "build:html": "marp index.md -o slides/index.html"
   },
   "repository": {
     "type": "git",
