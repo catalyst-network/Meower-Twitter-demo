@@ -8,9 +8,15 @@
     <div class="column">
       <div class="tweetBody">
         <div class="tweetHead">
-          <span class="author">
-            {{ tweet.publicKey }}
-          </span>
+          <b-tooltip
+            position="is-right"
+            type="is-dark"
+            :label="tweet.publicKey"
+          >
+            <span class="author">
+              {{ name }}
+            </span>
+          </b-tooltip>
           {{ date }}
         </div>
         <div
@@ -82,9 +88,32 @@ export default {
     user() {
       return User.all()[0];
     },
+    name() {
+      if (this.tweet.publicKey === '5oNCckFnRY8MKCVC1htNfeDRpyt2vMMC6tngjcyTNw9a') {
+        return 'Alice';
+      }
+      if (this.tweet.publicKey === '4rsFxRNsT1ZUtLNeWTnUHd3X732hh8KAKNPJcCSUmizg') {
+        return 'Bob';
+      }
+      return 'Charlie';
+    },
 
     liked() {
       return this.tweet.likes.map(like => like.publicKey).includes(this.user.publicKey);
+    },
+    tweetLikes() {
+      return this.tweet.likes.length;
+    },
+  },
+
+  watch: {
+    tweetLikes(val) {
+      this.likes = val;
+      if (this.liked) {
+        this.userLiked = true;
+      } else {
+        this.userLiked = false;
+      }
     },
   },
 
