@@ -68,7 +68,7 @@
     <Picker
       v-if="isEmojiModalActive"
       set="twitter"
-      style="position: absolute"
+      style="position: absolute; z-index: 900;"
       color="#44ac9f"
       emoji=""
       title=""
