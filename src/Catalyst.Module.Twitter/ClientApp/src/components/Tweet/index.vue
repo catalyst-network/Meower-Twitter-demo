@@ -101,6 +101,20 @@ export default {
     liked() {
       return this.tweet.likes.map(like => like.publicKey).includes(this.user.publicKey);
     },
+    tweetLikes() {
+      return this.tweet.likes.length;
+    },
+  },
+
+  watch: {
+    tweetLikes(val) {
+      this.likes = val;
+      if (this.liked) {
+        this.userLiked = true;
+      } else {
+        this.userLiked = false;
+      }
+    },
   },
 
   mounted() {

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meower</title>
+</head>
+<body>
+    
+    <div id="container">
+            <h1>Meower</h1>
+            <h2>Choose your cat</h2>
+            <div class="section group">
+                <div class="col span_1_of_3">
+                    <a href="http://159.65.22.219:5006/#/">
+                            <img class="alice" src="images/alice.png" />
+                            <h3>Alice</h3>
+                    </a>
+
+                
+                </div>
+                <div class="col span_1_of_3">
+                    <a href="http://134.209.224.44:5006/#/">
+                            <img class="bob" src="images/bob.png" />
+                            <h3>Bob</h3>
+                    </a>
+
+                
+                </div>
+                <div class="col span_1_of_3">
+                    <a href="http://68.183.4.145:5006/#/">
+                            <img class="charlie" src="images/charlie.png" />
+                            <h3>Charlie</h3>
+                    </a>
+
+                
+                </div>
+            </div>
+            <h3>Powered by</h3>
+            <a href="https://catalystnet.org">
+            <img src="images/logo.svg" />
+            </a>
+    </div>
+    
+</body>
+<style>
+  #container {
+    margin-top: 40px;
+  }
+
+  body {
+    text-align: center;
+    background-color: #0a2d3e;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+.section img {
+    padding: 10px;
+    border-radius: 40px;
+    border: solid;
+    border-width: 5px;
+ }
+
+ .section img:hover {
+    border-color: #14ac9e;
+ }
+ .section a {
+     color: white;
+     text-decoration: none;
+ }
+ .section a:hover {
+     color: #14ac9e;
+     text-decoration: none;
+ }
+ .section .alice {
+    border-color: #85b2f2;
+ }
+
+ .section .bob {
+    border-color: #5a5a5a;
+ }
+
+ .section .charlie {
+    border-color: #f16998;
+ }
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+</style>
+</html>
